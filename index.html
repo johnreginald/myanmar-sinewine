@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        .short-bon {
-            margin-top: 50px;
-        }
         body {
             margin: 5rem 3rem;
         }
@@ -32,16 +29,6 @@
             font-size: 24px;
             line-height: 1.33;
         }
-        .bon:hover {
-            padding-top: 40px;
-            width: 100px;
-            height: 60px;
-        }
-        @media (max-width: 767px) {
-            .bon {
-                margin-top: 30px;
-            }
-        }
         .mm {
             font-family: Pyidaungsu;
         }
@@ -60,8 +47,8 @@
 
         <hr />
 
-        <div class="short-bon">
-            <button class="btn btn-outline-warning mm mr-3 mt-lg-0 mt-5 btn-xl btn-circle" @click="play(49)">ဒို</button>
+        <div class="mt-lg-5 mt-2">
+            <button class="btn btn-outline-warning mm mr-3 mt-lg-0 mt-5 btn-xl btn-circle" @click="play(49)" draggable="true">ဒို</button>
             <button class="btn btn-outline-warning mm mr-3 mt-lg-0 mt-5 btn-xl btn-circle" @click="play(50)">ရေ</button>
             <button class="btn btn-outline-warning mm mr-3 mt-lg-0 mt-5 btn-xl btn-circle" @click="play(51)">မီ</button>
             <button class="btn btn-outline-warning mm mr-3 mt-lg-0 mt-5 btn-xl btn-circle" @click="play(52)">ဖာ</button>
