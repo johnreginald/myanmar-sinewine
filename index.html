@@ -48,25 +48,19 @@
         <hr />
 
         <div class="mt-lg-5 mt-2">
-            <button class="btn btn-outline-warning mm mr-3 mt-lg-0 mt-5 btn-xl btn-circle" @click="play(49)" draggable="true">ဒို</button>
-            <button class="btn btn-outline-warning mm mr-3 mt-lg-0 mt-5 btn-xl btn-circle" @click="play(50)">ရေ</button>
-            <button class="btn btn-outline-warning mm mr-3 mt-lg-0 mt-5 btn-xl btn-circle" @click="play(51)">မီ</button>
-            <button class="btn btn-outline-warning mm mr-3 mt-lg-0 mt-5 btn-xl btn-circle" @click="play(52)">ဖာ</button>
-            <button class="btn btn-outline-warning mm mr-3 mt-lg-0 mt-5 btn-xl btn-circle" @click="play(53)">ဆို</button>
-            <button class="btn btn-outline-warning mm mr-3 mt-lg-0 mt-5 btn-xl btn-circle" @click="play(54)">လာ</button>
-            <button class="btn btn-outline-warning mm mr-3 mt-lg-0 mt-5 btn-xl btn-circle" @click="play(55)">တီ</button>
+            <template v-for="music in musics">
+                <button class="btn btn-outline-warning mm mr-3 mt-lg-0 mt-5 btn-xl btn-circle" @click="play($event, music)" draggable="true">
+                    {{ music.text }}
+                </button>    
+            </template>
         </div>
 
-        <audio src="bon/do.wav" ref="do"></audio>
-        <audio src="bon/ra.wav" ref="ra"></audio>
-        <audio src="bon/mi.wav" ref="mi"></audio>
-        <audio src="bon/fa.wav" ref="fa"></audio>
-        <audio src="bon/so.wav" ref="so"></audio>
-        <audio src="bon/la.wav" ref="la"></audio>
-        <audio src="bon/ti.wav" ref="ti"></audio>
+        <template v-for="music in musics">
+            <audio :src="'bon/'+ music.sound + '.wav'" :ref="music.sound"></audio>
+        </template>
 
         <div class="footer fixed-bottom text-center">
-            <p>&copy; 2019 - 2022 Crafted with <span class="text-danger"><i class="fa fw fa-heart"></i></span> by <a href='https://hashtech.guru'>Hash Tech Guru</a>
+            <p>&copy; 2019 - {{ currentYear }} Crafted with <span class="text-danger"><i class="fa fw fa-heart"></i></span> by <a href='https://hashtech.guru'>Hash Tech Guru</a>
         </div>
     </div>
     
@@ -74,42 +68,24 @@
     <script>
         var app = new Vue({
             el: "#app",
+            data: {
+                currentYear: (new Date()).getFullYear(),
+                musics: [
+                    { sound: 'do', text: 'ဒို' },
+                    { sound: 'ra', text: 'ရေ' },
+                    { sound: 'mi', text: 'မီ' },
+                    { sound: 'fa', text: 'ဖာ' },
+                    { sound: 'so', text: 'ဆို' },
+                    { sound: 'la', text: 'လာ' },
+                    { sound: 'ti', text: 'တီ' },
+                ]
+            },
             methods: {
-                play(code) {
-                    if (code == "49") {
-                        this.$refs.do.currentTime = 0
-                        this.$refs.do.play()
-                    }
+                play(e, music) {
+                    var music_audio = this.$refs[music.sound][0];
+                    music_audio.currentTime = 0;
 
-                    if (code == "50") {
-                        this.$refs.ra.currentTime = 0
-                        this.$refs.ra.play()
-                    }
-
-                    if (code == "51") {
-                        this.$refs.mi.currentTime = 0
-                        this.$refs.mi.play()
-                    }
-
-                    if (code == "52") {
-                        this.$refs.fa.currentTime = 0
-                        this.$refs.fa.play()
-                    }
-
-                    if (code == "53") {
-                        this.$refs.so.currentTime = 0
-                        this.$refs.so.play()
-                    }
-
-                    if (code == "54") {
-                        this.$refs.la.currentTime = 0
-                        this.$refs.la.play()
-                    }
-
-                    if (code == "55") {
-                        this.$refs.ti.currentTime = 0
-                        this.$refs.ti.play()
-                    }
+                    music_audio.play();
                 }
             }
         })
