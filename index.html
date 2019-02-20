@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>မြန်မာ့တူရိယာများ</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=pyidaungsu' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .short-bon {
+            margin-top: 50px;
+        }
+        body {
+            margin: 5rem 3rem;
+        }
+        .btn-circle {
+            width: 30px;
+            height: 30px;
+            padding: 6px 0px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.42857;
+        }
+        .btn-circle.btn-xl {
+            width: 70px;
+            height: 70px;
+            padding: 10px 16px;
+            border-radius: 35px;
+            font-size: 24px;
+            line-height: 1.33;
+        }
+        .bon:hover {
+            padding-top: 40px;
+            width: 100px;
+            height: 60px;
+        }
+        @media (max-width: 767px) {
+            .bon {
+                margin-top: 30px;
+            }
+        }
+        .mm {
+            font-family: Pyidaungsu;
+        }
+        .footer {
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="text-center">
+            <h2 class="mm">မြန်မာ့တူရိယာများ</h2>
+        </div>
+
+        <h4 class="mm mt-5">ဗုံတိုများ ( သံမြင့် )</h4>
+
+        <hr />
+
+        <div class="short-bon">
+            <button class="btn btn-outline-warning mm mr-3 mt-lg-0 mt-5 btn-xl btn-circle" @click="play(49)">ဒို</button>
+            <button class="btn btn-outline-warning mm mr-3 mt-lg-0 mt-5 btn-xl btn-circle" @click="play(50)">ရေ</button>
+            <button class="btn btn-outline-warning mm mr-3 mt-lg-0 mt-5 btn-xl btn-circle" @click="play(51)">မီ</button>
+            <button class="btn btn-outline-warning mm mr-3 mt-lg-0 mt-5 btn-xl btn-circle" @click="play(52)">ဖာ</button>
+            <button class="btn btn-outline-warning mm mr-3 mt-lg-0 mt-5 btn-xl btn-circle" @click="play(53)">ဆို</button>
+            <button class="btn btn-outline-warning mm mr-3 mt-lg-0 mt-5 btn-xl btn-circle" @click="play(54)">လာ</button>
+            <button class="btn btn-outline-warning mm mr-3 mt-lg-0 mt-5 btn-xl btn-circle" @click="play(55)">တီ</button>
+        </div>
+
+        <audio src="bon/do.wav" ref="do"></audio>
+        <audio src="bon/ra.wav" ref="ra"></audio>
+        <audio src="bon/mi.wav" ref="mi"></audio>
+        <audio src="bon/fa.wav" ref="fa"></audio>
+        <audio src="bon/so.wav" ref="so"></audio>
+        <audio src="bon/la.wav" ref="la"></audio>
+        <audio src="bon/ti.wav" ref="ti"></audio>
+
+        <div class="footer fixed-bottom text-center">
+            <p>&copy; 2019 - 2022 Crafted with <span class="text-danger"><i class="fa fw fa-heart"></i></span> by <a href='https://hashtech.guru'>Hash Tech Guru</a>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            methods: {
+                play(code) {
+                    if (code == "49") {
+                        this.$refs.do.currentTime = 0
+                        this.$refs.do.play()
+                    }
+
+                    if (code == "50") {
+                        this.$refs.ra.currentTime = 0
+                        this.$refs.ra.play()
+                    }
+
+                    if (code == "51") {
+                        this.$refs.mi.currentTime = 0
+                        this.$refs.mi.play()
+                    }
+
+                    if (code == "52") {
+                        this.$refs.fa.currentTime = 0
+                        this.$refs.fa.play()
+                    }
+
+                    if (code == "53") {
+                        this.$refs.so.currentTime = 0
+                        this.$refs.so.play()
+                    }
+
+                    if (code == "54") {
+                        this.$refs.la.currentTime = 0
+                        this.$refs.la.play()
+                    }
+
+                    if (code == "55") {
+                        this.$refs.ti.currentTime = 0
+                        this.$refs.ti.play()
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
